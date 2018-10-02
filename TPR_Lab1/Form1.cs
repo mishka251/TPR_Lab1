@@ -42,14 +42,15 @@ namespace TPR_Lab1
         private void Save_Click(object sender, EventArgs e)
         {
             string file;
-            OpenFileDialog ofd = new OpenFileDialog
+            SaveFileDialog sfd = new SaveFileDialog//();
+           // OpenFileDialog ofd = new OpenFileDialog
             {
                 //ofd.Filter = ".txt";
-                Multiselect = false,
+                
                 Title = "Выбор файла для сохранения"
             };
-            ofd.ShowDialog();
-            file = ofd.FileName;
+            sfd.ShowDialog();
+            file = sfd.FileName;
             model.Save(file);
 
         }
