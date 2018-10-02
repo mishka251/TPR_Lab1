@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TPR_Lab1
@@ -22,23 +16,13 @@ namespace TPR_Lab1
 
             mat = new Matrix(n, m);
             InitializeComponent();
-//<<<<<<< HEAD
-//            this.dataGridView1.RowCount = n + 1;
-//            this.dataGridView1.ColumnCount = m;
-//            dataGridView1.ColumnHeadersVisible = false;
-//            dataGridView1.RowHeadersVisible = false;
-//            this.Text = name;
-//            dataGridView1.AllowUserToAddRows = false;
-//            // dataGridView1.row
-//=======
+
             this.dataGridView_Input.RowCount = n+1;
             this.dataGridView_Input.ColumnCount = m;
             dataGridView_Input.ColumnHeadersVisible = false;
             dataGridView_Input.RowHeadersVisible = false;
             this.Text = name;
             dataGridView_Input.AllowUserToAddRows = false;
-           // dataGridView1.row
-//>>>>>>> 88e8c3852f7e2b0aa6a7cd9584e1e2104dad52fa
         }
 
         public InputMatrix()
