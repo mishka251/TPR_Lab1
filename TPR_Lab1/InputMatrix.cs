@@ -22,13 +22,23 @@ namespace TPR_Lab1
 
             mat = new Matrix(n, m);
             InitializeComponent();
-            this.dataGridView1.RowCount = n + 1;
-            this.dataGridView1.ColumnCount = m;
-            dataGridView1.ColumnHeadersVisible = false;
-            dataGridView1.RowHeadersVisible = false;
+//<<<<<<< HEAD
+//            this.dataGridView1.RowCount = n + 1;
+//            this.dataGridView1.ColumnCount = m;
+//            dataGridView1.ColumnHeadersVisible = false;
+//            dataGridView1.RowHeadersVisible = false;
+//            this.Text = name;
+//            dataGridView1.AllowUserToAddRows = false;
+//            // dataGridView1.row
+//=======
+            this.dataGridView_Input.RowCount = n+1;
+            this.dataGridView_Input.ColumnCount = m;
+            dataGridView_Input.ColumnHeadersVisible = false;
+            dataGridView_Input.RowHeadersVisible = false;
             this.Text = name;
-            dataGridView1.AllowUserToAddRows = false;
-            // dataGridView1.row
+            dataGridView_Input.AllowUserToAddRows = false;
+           // dataGridView1.row
+//>>>>>>> 88e8c3852f7e2b0aa6a7cd9584e1e2104dad52fa
         }
 
         public InputMatrix()
@@ -44,7 +54,7 @@ namespace TPR_Lab1
                 double sum = 0;
                 for (int j = 0; j < m; j++)
                 {
-                    mat[i, j] = double.Parse(dataGridView1[j, i].Value.ToString());
+                    mat[i, j] = double.Parse(dataGridView_Input[j, i].Value.ToString().Replace(".", ","));
                     sum += mat[i, j];
                 }
                 if (Math.Abs(sum - 1) > 1E-5)
