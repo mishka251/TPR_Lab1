@@ -32,19 +32,19 @@ namespace TPR_Lab1
             for (int i = 0; i < model.d.n; i++)
             {
                 dgvD.Rows[i].HeaderCell.Value = "состояние" + (i + 1);
-                
+
                 for (int j = 0; j < model.d.m; j++)
                 {
                     dgvD[j, i].Value = model.d[i, j] + 1;
                     dgvD.Columns[j].HeaderText = "шаг " + j;
                 }
             }
-                
+
 
             for (int i = 0; i < model.v.n; i++)
             {
                 dgvV.Rows[i].HeaderCell.Value = "состояние" + (i + 1);
-               
+
                 for (int j = 0; j < model.v.m; j++)
                 {
                     dgvV[j, i].Value = model.v[i, j];
@@ -52,8 +52,8 @@ namespace TPR_Lab1
 
                 }
             }
-           
-                
+
+
 
         }
         Model model;
@@ -65,7 +65,9 @@ namespace TPR_Lab1
                 Filter = "(Текстовые файлы)|*.txt",
                 Title = "Выбор файла для сохранения"
             };
-            sfd.ShowDialog();
+            DialogResult dr = sfd.ShowDialog();
+            if (dr == DialogResult.Abort || dr == DialogResult.Cancel)
+                return;
             file = sfd.FileName;
             model.Save(file);
 
@@ -80,7 +82,9 @@ namespace TPR_Lab1
                 Filter = "(Текстовые файлы)|*.txt",
                 Title = "Выбор файла для загрузки"
             };
-            ofd.ShowDialog();
+            DialogResult dr = ofd.ShowDialog();
+            if (dr == DialogResult.Abort || dr == DialogResult.Cancel)
+                return;
             file = ofd.FileName;
             model = new Model();
             model.Load(file);
