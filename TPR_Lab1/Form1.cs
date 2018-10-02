@@ -31,7 +31,7 @@ namespace TPR_Lab1
 
             for (int i = 0; i < model.d.n; i++)
                 for (int j = 0; j < model.d.m; j++)
-                    dgvD[j, i].Value = model.d[i, j]+1;
+                    dgvD[j, i].Value = model.d[i, j] + 1;
 
             for (int i = 0; i < model.v.n; i++)
                 for (int j = 0; j < model.v.m; j++)
@@ -42,11 +42,9 @@ namespace TPR_Lab1
         private void Save_Click(object sender, EventArgs e)
         {
             string file;
-            SaveFileDialog sfd = new SaveFileDialog//();
-           // OpenFileDialog ofd = new OpenFileDialog
+            SaveFileDialog sfd = new SaveFileDialog
             {
-                //ofd.Filter = ".txt";
-                
+                Filter = ".txt",
                 Title = "Выбор файла для сохранения"
             };
             sfd.ShowDialog();
@@ -61,7 +59,7 @@ namespace TPR_Lab1
             OpenFileDialog ofd = new OpenFileDialog
             {
                 Multiselect = false,
-                //ofd.Filter = ".txt";
+                Filter = ".txt",
                 Title = "Выбор файла для загрузки"
             };
             ofd.ShowDialog();
@@ -87,12 +85,15 @@ namespace TPR_Lab1
             for (int i = 0; i < k; i++)
             {
                 Matrix p, r;
-                InputMatrix input = new InputMatrix(model.N, model.N, "матрица вероятностей для "+(i+1)+" стратегии");
-                input.ShowDialog();
+                InputMatrix input = new InputMatrix(model.N, model.N, "матрица вероятностей для " + (i + 1) + " стратегии");
+                if (input.ShowDialog() == DialogResult.Cancel)
+                    return;
                 p = input.mat;
 
                 input = new InputMatrix(model.N, model.N, "матрица доходностей для " + (i + 1) + " стратегии");
-                input.ShowDialog();
+                if (input.ShowDialog() == DialogResult.Cancel)
+                    return;
+
                 r = input.mat;
                 Strategy s = new Strategy(p, r, model.N);
                 model.strategies[i] = s;
