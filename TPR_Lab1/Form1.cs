@@ -30,26 +30,45 @@ namespace TPR_Lab1
             dgvV.ColumnCount = model.v.m;
 
             for (int i = 0; i < model.d.n; i++)
+            {
+                dgvD.Rows[i].HeaderCell.Value = "состояние" + (i + 1);
+
                 for (int j = 0; j < model.d.m; j++)
-                    dgvD[j, i].Value = model.d[i, j]+1;
+                {
+                    dgvD[j, i].Value = model.d[i, j] + 1;
+                    dgvD.Columns[j].HeaderText = "шаг " + j;
+                }
+            }
+
 
             for (int i = 0; i < model.v.n; i++)
+            {
+                dgvV.Rows[i].HeaderCell.Value = "состояние" + (i + 1);
+
                 for (int j = 0; j < model.v.m; j++)
+                {
                     dgvV[j, i].Value = model.v[i, j];
+                    dgvV.Columns[j].HeaderText = "шаг " + j;
+
+                }
+            }
+
+
 
         }
         Model model;
         private void Save_Click(object sender, EventArgs e)
         {
             string file;
-            OpenFileDialog ofd = new OpenFileDialog
+            SaveFileDialog sfd = new SaveFileDialog
             {
-                //ofd.Filter = ".txt";
-                Multiselect = false,
+                Filter = "(Текстовые файлы)|*.txt",
                 Title = "Выбор файла для сохранения"
             };
-            ofd.ShowDialog();
-            file = ofd.FileName;
+            DialogResult dr = sfd.ShowDialog();
+            if (dr == DialogResult.Abort || dr == DialogResult.Cancel)
+                return;
+            file = sfd.FileName;
             model.Save(file);
 
         }
@@ -60,10 +79,12 @@ namespace TPR_Lab1
             OpenFileDialog ofd = new OpenFileDialog
             {
                 Multiselect = false,
-                //ofd.Filter = ".txt";
+                Filter = "(Текстовые файлы)|*.txt",
                 Title = "Выбор файла для загрузки"
             };
-            ofd.ShowDialog();
+            DialogResult dr = ofd.ShowDialog();
+            if (dr == DialogResult.Abort || dr == DialogResult.Cancel)
+                return;
             file = ofd.FileName;
             model = new Model();
             model.Load(file);
@@ -86,12 +107,15 @@ namespace TPR_Lab1
             for (int i = 0; i < k; i++)
             {
                 Matrix p, r;
-                InputMatrix input = new InputMatrix(model.N, model.N, "матрица вероятностей для "+(i+1)+" стратегии");
-                input.ShowDialog();
+                InputMatrix input = new InputMatrix(model.N, model.N, "матрица вероятностей для " + (i + 1) + " стратегии");
+                if (input.ShowDialog() == DialogResult.Cancel)
+                    return;
                 p = input.mat;
 
-                input = new InputMatrix(model.N, model.N, "матрица ценности для " + (i + 1) + " стратегии");
-                input.ShowDialog();
+                input = new InputMatrix(model.N, model.N, "матрица доходностей для " + (i + 1) + " стратегии");
+                if (input.ShowDialog() == DialogResult.Cancel)
+                    return;
+
                 r = input.mat;
                 Strategy s = new Strategy(p, r, model.N);
                 model.strategies[i] = s;
