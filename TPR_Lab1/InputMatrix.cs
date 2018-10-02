@@ -22,12 +22,12 @@ namespace TPR_Lab1
             
             mat = new Matrix(n, m);
             InitializeComponent();
-            this.dataGridView1.RowCount = n+1;
-            this.dataGridView1.ColumnCount = m;
-            dataGridView1.ColumnHeadersVisible = false;
-            dataGridView1.RowHeadersVisible = false;
+            this.dataGridView_Input.RowCount = n+1;
+            this.dataGridView_Input.ColumnCount = m;
+            dataGridView_Input.ColumnHeadersVisible = false;
+            dataGridView_Input.RowHeadersVisible = false;
             this.Text = name;
-            dataGridView1.AllowUserToAddRows = false;
+            dataGridView_Input.AllowUserToAddRows = false;
            // dataGridView1.row
         }
 
@@ -40,7 +40,7 @@ namespace TPR_Lab1
         {
             for (int i = 0; i < n; i++)
                 for (int j = 0; j < m; j++)
-                    mat[i, j] = double.Parse(dataGridView1[j, i].Value.ToString());
+                    mat[i, j] = double.Parse(dataGridView_Input[j, i].Value.ToString().Replace(".", ","));
             this.DialogResult = DialogResult.OK;
         }
 

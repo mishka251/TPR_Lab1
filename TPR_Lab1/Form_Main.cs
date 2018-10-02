@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TPR_Lab1
 {
-    public partial class Form1 : Form
+    public partial class Form_Main : Form
     {
-        public Form1()
+        public Form_Main()
         {
             InitializeComponent();
         }
@@ -23,19 +23,19 @@ namespace TPR_Lab1
                 return;
             model.Calculate();
 
-            dgvD.RowCount = model.d.n;
-            dgvD.ColumnCount = model.d.m;
+            dgv_D.RowCount = model.d.n;
+            dgv_D.ColumnCount = model.d.m;
 
-            dgvV.RowCount = model.v.n;
-            dgvV.ColumnCount = model.v.m;
+            dgv_V.RowCount = model.v.n;
+            dgv_V.ColumnCount = model.v.m;
 
             for (int i = 0; i < model.d.n; i++)
                 for (int j = 0; j < model.d.m; j++)
-                    dgvD[j, i].Value = model.d[i, j]+1;
+                    dgv_D[j, i].Value = model.d[i, j]+1;
 
             for (int i = 0; i < model.v.n; i++)
                 for (int j = 0; j < model.v.m; j++)
-                    dgvV[j, i].Value = model.v[i, j];
+                    dgv_V[j, i].Value = model.v[i, j];
 
         }
         Model model;
@@ -69,18 +69,18 @@ namespace TPR_Lab1
             model.Load(file);
 
 
-            numUDn.Value = model.n;
-            numUDN2.Value = model.N;
-            numUDk.Value = model.strategies.Length;
+            NumericUpDown_countM.Value = model.n;
+            NumericUpDown_countState.Value = model.N;
+            NumericUpDown_countStr.Value = model.strategies.Length;
 
         }
 
         private void Create_Click(object sender, EventArgs e)
         {
             model = new Model();
-            model.n = (int)numUDn.Value;
-            model.N = (int)numUDN2.Value;
-            int k = (int)numUDk.Value;
+            model.n = (int)NumericUpDown_countM.Value;
+            model.N = (int)NumericUpDown_countState.Value;
+            int k = (int)NumericUpDown_countStr.Value;
             model.strategies = new Strategy[k];
 
             for (int i = 0; i < k; i++)
@@ -104,5 +104,6 @@ namespace TPR_Lab1
             GraphForm gf = new GraphForm(model);
             gf.Show();
         }
+
     }
 }
