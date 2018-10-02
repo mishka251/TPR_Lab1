@@ -30,12 +30,30 @@ namespace TPR_Lab1
             dgvV.ColumnCount = model.v.m;
 
             for (int i = 0; i < model.d.n; i++)
+            {
+                dgvD.Rows[i].HeaderCell.Value = "состояние" + (i + 1);
+                
                 for (int j = 0; j < model.d.m; j++)
+                {
                     dgvD[j, i].Value = model.d[i, j] + 1;
+                    dgvD.Columns[j].HeaderText = "шаг " + j;
+                }
+            }
+                
 
             for (int i = 0; i < model.v.n; i++)
+            {
+                dgvV.Rows[i].HeaderCell.Value = "состояние" + (i + 1);
+               
                 for (int j = 0; j < model.v.m; j++)
+                {
                     dgvV[j, i].Value = model.v[i, j];
+                    dgvV.Columns[j].HeaderText = "шаг " + j;
+
+                }
+            }
+           
+                
 
         }
         Model model;
@@ -44,7 +62,7 @@ namespace TPR_Lab1
             string file;
             SaveFileDialog sfd = new SaveFileDialog
             {
-                Filter = ".txt",
+                Filter = "(Текстовые файлы)|*.txt",
                 Title = "Выбор файла для сохранения"
             };
             sfd.ShowDialog();
@@ -59,7 +77,7 @@ namespace TPR_Lab1
             OpenFileDialog ofd = new OpenFileDialog
             {
                 Multiselect = false,
-                Filter = ".txt",
+                Filter = "(Текстовые файлы)|*.txt",
                 Title = "Выбор файла для загрузки"
             };
             ofd.ShowDialog();
