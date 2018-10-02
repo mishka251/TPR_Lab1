@@ -90,7 +90,7 @@ namespace TPR_Lab1
                 input.ShowDialog();
                 p = input.mat;
 
-                input = new InputMatrix(model.N, model.N, "матрица ценности для " + (i + 1) + " стратегии");
+                input = new InputMatrix(model.N, model.N, "матрица доходностей для " + (i + 1) + " стратегии");
                 input.ShowDialog();
                 r = input.mat;
                 Strategy s = new Strategy(p, r, model.N);
