@@ -4,11 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 
 namespace TPR_Lab1
 {
     class Graph
     {
+
+        public static Pen[] MyPens = { Pens.Black, Pens.Red, Pens.Blue, Pens.Green, Pens.Orange };
+    
         const int R = 4;
         //координаты для каждой ситуации каждого шага[ситуация, шаг]
         Point[,] situation_coords;
@@ -19,17 +23,35 @@ namespace TPR_Lab1
             g.DrawString((point_index + 1).ToString(), new Font("Arial", 12), Brushes.Black, point.X, point.Y);
         }
 
-        void DrawArrow(Graphics g, int sit1, int time1, int sit2, int time2, double prop, double weight)
+        void DrawArrow(Graphics g, int strat, int sit1, int time1, int sit2, int time2, double prop, double cost)
         {
             var p1 = situation_coords[sit1, time1];
             var p2 = situation_coords[sit2, time2];
+
             Font font = new Font(SystemFonts.DefaultFont, FontStyle.Regular);
-            g.DrawLine(Pens.Black, p1, p2);
-            g.DrawString(prop.ToString(), font, Brushes.Black, (p1.X + p2.X) / 2, (p1.Y + p2.Y) / 2 + 10);
-            g.DrawString(weight.ToString(), font, Brushes.Black, (p1.X + p2.X) / 2, (p1.Y + p2.Y) / 2 - 10);
+            Pen pen = (Pen)MyPens[strat].Clone();
+            pen.EndCap = LineCap.ArrowAnchor;
+            
+            g.DrawLine(MyPens[strat], p1, p2);
+            double k = p1.X == p2.X|| p2.Y == p1.Y ? 0 : ((double)(p2.Y - p1.Y)) / (p2.X - p1.X);
+
+            Point p = new Point
+            {
+                X = (int)((p1.X+p2.X)/2 + k * (p2.X - p1.X) / 5),
+                Y = (p1.Y + p2.Y) / 2 + 10
+            };
+
+            Point c = new Point
+            {
+                X = (int)((p1.X + p2.X) / 2 + k * (p2.X - p1.X) / 5),
+                Y = (p1.Y + p2.Y) / 2 - 10
+            };
+
+            g.DrawString(prop.ToString(), font, MyPens[strat].Brush, p.X, p.Y);
+            g.DrawString(cost.ToString(), font, MyPens[strat].Brush, c.X, c.Y);
         }
 
-        public void Draw(Model model, Graphics g, int width, int height, int sit, int strat)
+        public void Draw(Model model, Graphics g, int width, int height, int sit/*, int strat*/)
         {
             int n = model.n;
             int N = model.N;
@@ -49,14 +71,19 @@ namespace TPR_Lab1
                 }
             }
 
+            int strat = (int)model.d[0, sit];
 
             for (int index = 0; index < N; index++)//стрелки из выбранной в следующие
-                DrawArrow(g, sit, 0, index, 1, model.strategies[strat].p[sit, index], model.strategies[strat].r[sit, index]);
-            for (int time = 1; time < n - 1; time++)
+                DrawArrow(g, strat, sit, 0, index, 1, model.strategies[strat].p[sit, index], model.strategies[strat].r[sit, index]);
 
-                for (int index1 = 0; index1 < N; index1++)//из каждой в следующие
-                    for (int index2 = 0; index2 < N; index2++)//из каждой в следующие
-                        DrawArrow(g, index1, time, index2, time + 1, model.strategies[strat].p[index1, index2], model.strategies[strat].r[index1, index2]);
+
+            for (int time = 1; time < n - 1; time++)//каждое время
+                for (int sit1 = 0; sit1 < N; sit1++)//из каждой в следующие
+                {
+                    strat = (int)model.d[time, sit];
+                    for (int sit2 = 0; sit2 < N; sit2++)//из каждой в следующие
+                        DrawArrow(g, strat,  sit1, time, sit2, time + 1, model.strategies[strat].p[sit1, sit2], model.strategies[strat].r[sit1, sit2]);
+                }
 
             for (int index = 0; index < N; index++)//рисуем ситуации для всех времен
                 for (int time = 0; time < n; time++)

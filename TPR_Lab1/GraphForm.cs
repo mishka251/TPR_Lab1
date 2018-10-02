@@ -31,7 +31,7 @@ namespace TPR_Lab1
 
             Graphics g = Graphics.FromImage(bmp);
 
-            gr.Draw(model, g, pictureBox1.Width, pictureBox1.Height, sit-1, (int)model.d[sit-1, model.n-1]);
+            gr.Draw(model, g, pictureBox1.Width, pictureBox1.Height, sit-1/*, (int)model.d[sit-1, model.n-1]*/);
 
             pictureBox1.Image = bmp;
 
