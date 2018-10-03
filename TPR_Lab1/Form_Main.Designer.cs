@@ -47,8 +47,8 @@
             this.groupBox_InputDate = new System.Windows.Forms.GroupBox();
             this.label_D1 = new System.Windows.Forms.Label();
             this.label_V1 = new System.Windows.Forms.Label();
-            this.dataGridView_Inputdate2 = new System.Windows.Forms.DataGridView();
-            this.dataGridView_InputDate = new System.Windows.Forms.DataGridView();
+            this.dataGridView_InputDateD = new System.Windows.Forms.DataGridView();
+            this.dataGridView_InputDateV = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.NumericUpDown_countM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumericUpDown_countState)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumericUpDown_countStr)).BeginInit();
@@ -58,8 +58,8 @@
             this.groupBox_matrixV.SuspendLayout();
             this.groupBox_matrixD.SuspendLayout();
             this.groupBox_InputDate.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Inputdate2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_InputDate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_InputDateD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_InputDateV)).BeginInit();
             this.SuspendLayout();
             // 
             // button_Start
@@ -239,8 +239,8 @@
             // 
             this.groupBox_InputDate.Controls.Add(this.label_D1);
             this.groupBox_InputDate.Controls.Add(this.label_V1);
-            this.groupBox_InputDate.Controls.Add(this.dataGridView_Inputdate2);
-            this.groupBox_InputDate.Controls.Add(this.dataGridView_InputDate);
+            this.groupBox_InputDate.Controls.Add(this.dataGridView_InputDateD);
+            this.groupBox_InputDate.Controls.Add(this.dataGridView_InputDateV);
             this.groupBox_InputDate.Location = new System.Drawing.Point(251, 31);
             this.groupBox_InputDate.Name = "groupBox_InputDate";
             this.groupBox_InputDate.Size = new System.Drawing.Size(608, 323);
@@ -262,29 +262,29 @@
             this.label_V1.AutoSize = true;
             this.label_V1.Location = new System.Drawing.Point(183, 25);
             this.label_V1.Name = "label_V1";
-            this.label_V1.Size = new System.Drawing.Size(181, 13);
+            this.label_V1.Size = new System.Drawing.Size(187, 13);
             this.label_V1.TabIndex = 2;
-            this.label_V1.Text = "Матрица перехоных вероятностей";
+            this.label_V1.Text = "Матрица переходных вероятностей";
             // 
-            // dataGridView_Inputdate2
+            // dataGridView_InputDateD
             // 
-            this.dataGridView_Inputdate2.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridView_Inputdate2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView_Inputdate2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_Inputdate2.Location = new System.Drawing.Point(7, 196);
-            this.dataGridView_Inputdate2.Name = "dataGridView_Inputdate2";
-            this.dataGridView_Inputdate2.Size = new System.Drawing.Size(595, 121);
-            this.dataGridView_Inputdate2.TabIndex = 1;
+            this.dataGridView_InputDateD.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridView_InputDateD.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridView_InputDateD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_InputDateD.Location = new System.Drawing.Point(7, 196);
+            this.dataGridView_InputDateD.Name = "dataGridView_InputDateD";
+            this.dataGridView_InputDateD.Size = new System.Drawing.Size(595, 121);
+            this.dataGridView_InputDateD.TabIndex = 1;
             // 
-            // dataGridView_InputDate
+            // dataGridView_InputDateV
             // 
-            this.dataGridView_InputDate.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridView_InputDate.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView_InputDate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_InputDate.Location = new System.Drawing.Point(6, 41);
-            this.dataGridView_InputDate.Name = "dataGridView_InputDate";
-            this.dataGridView_InputDate.Size = new System.Drawing.Size(596, 121);
-            this.dataGridView_InputDate.TabIndex = 0;
+            this.dataGridView_InputDateV.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridView_InputDateV.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridView_InputDateV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_InputDateV.Location = new System.Drawing.Point(6, 41);
+            this.dataGridView_InputDateV.Name = "dataGridView_InputDateV";
+            this.dataGridView_InputDateV.Size = new System.Drawing.Size(596, 121);
+            this.dataGridView_InputDateV.TabIndex = 0;
             // 
             // Form_Main
             // 
@@ -313,8 +313,8 @@
             this.groupBox_matrixD.ResumeLayout(false);
             this.groupBox_InputDate.ResumeLayout(false);
             this.groupBox_InputDate.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Inputdate2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_InputDate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_InputDateD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_InputDateV)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -340,8 +340,8 @@
         private System.Windows.Forms.GroupBox groupBox_InputDate;
         private System.Windows.Forms.Label label_D1;
         private System.Windows.Forms.Label label_V1;
-        private System.Windows.Forms.DataGridView dataGridView_Inputdate2;
-        private System.Windows.Forms.DataGridView dataGridView_InputDate;
+        private System.Windows.Forms.DataGridView dataGridView_InputDateD;
+        private System.Windows.Forms.DataGridView dataGridView_InputDateV;
     }
 }
 
