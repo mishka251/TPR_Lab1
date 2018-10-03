@@ -53,7 +53,6 @@ namespace TPR_Lab1
 
             g.TranslateTransform(p.X, p.Y);
             g.RotateTransform((float)(vec.Y * 180.0 / vec.X / Math.PI));
-
             g.DrawString(prop.ToString(), font, MyPens[strat].Brush, 0, 0);
             g.RotateTransform(-(float)(vec.Y * 180.0 / vec.X / Math.PI));
             g.TranslateTransform(-p.X, -p.Y);

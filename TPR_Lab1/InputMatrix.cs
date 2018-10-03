@@ -17,7 +17,7 @@ namespace TPR_Lab1
             mat = new Matrix(n, m);
             InitializeComponent();
 
-            this.dataGridView_Input.RowCount = n+1;
+            this.dataGridView_Input.RowCount = n + 1;
             this.dataGridView_Input.ColumnCount = m;
             dataGridView_Input.ColumnHeadersVisible = false;
             dataGridView_Input.RowHeadersVisible = false;
@@ -45,7 +45,7 @@ namespace TPR_Lab1
                     ok = false;
             }
 
-            if (this.Text.IndexOf("вероятностей")!=0&&!ok)
+            if (this.Text.IndexOf("вероятностей") != -1 && !ok)
             {
                 MessageBox.Show("Сумма строке не 1");
                 return;
