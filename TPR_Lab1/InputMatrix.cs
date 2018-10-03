@@ -46,8 +46,9 @@ namespace TPR_Lab1
             }
 
             if (this.Text.IndexOf("вероятностей") != -1 && !ok)
+
             {
-                MessageBox.Show("Сумма строке не 1");
+                MessageBox.Show("Сумма в строке не равна 1");
                 return;
             }
 

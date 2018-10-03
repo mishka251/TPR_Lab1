@@ -51,7 +51,7 @@
             this.button_Draw.Name = "button_Draw";
             this.button_Draw.Size = new System.Drawing.Size(154, 28);
             this.button_Draw.TabIndex = 1;
-            this.button_Draw.Text = "Нарисовать граф";
+            this.button_Draw.Text = "Построить граф";
             this.button_Draw.UseVisualStyleBackColor = false;
             this.button_Draw.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -85,13 +85,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(890, 396);
+            this.ClientSize = new System.Drawing.Size(890, 479);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.numericUpDown_startState);
             this.Controls.Add(this.button_Draw);
             this.Controls.Add(this.pictureBox_Graph);
-            this.MaximumSize = new System.Drawing.Size(906, 431);
-            this.MinimumSize = new System.Drawing.Size(906, 431);
             this.Name = "GraphForm";
             this.Text = "GraphForm";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Graph)).EndInit();
