@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TPR_Lab1
@@ -22,13 +16,13 @@ namespace TPR_Lab1
 
             mat = new Matrix(n, m);
             InitializeComponent();
-            this.dataGridView1.RowCount = n + 1;
-            this.dataGridView1.ColumnCount = m;
-            dataGridView1.ColumnHeadersVisible = false;
-            dataGridView1.RowHeadersVisible = false;
+
+            this.dataGridView_Input.RowCount = n + 1;
+            this.dataGridView_Input.ColumnCount = m;
+            dataGridView_Input.ColumnHeadersVisible = false;
+            dataGridView_Input.RowHeadersVisible = false;
             this.Text = name;
-            dataGridView1.AllowUserToAddRows = false;
-            // dataGridView1.row
+            dataGridView_Input.AllowUserToAddRows = false;
         }
 
         public InputMatrix()
@@ -44,14 +38,14 @@ namespace TPR_Lab1
                 double sum = 0;
                 for (int j = 0; j < m; j++)
                 {
-                    mat[i, j] = double.Parse(dataGridView1[j, i].Value.ToString());
+                    mat[i, j] = double.Parse(dataGridView_Input[j, i].Value.ToString().Replace(".", ","));
                     sum += mat[i, j];
                 }
                 if (Math.Abs(sum - 1) > 1E-5)
                     ok = false;
             }
 
-            if (this.Text.IndexOf("вероятностей")!=0&&!ok)
+            if (this.Text.IndexOf("вероятностей") != -1 && !ok)
             {
                 MessageBox.Show("Сумма строке не 1");
                 return;

@@ -21,6 +21,11 @@ namespace TPR_Lab1
         /// </summary>
         int N;
 
+        /// <summary>
+        /// Название стратегии
+        /// </summary>
+        public string Name;
+
         public Strategy(Matrix props, Matrix sums, int N)
         {
             this.p = props ?? throw new ArgumentNullException(nameof(props));
@@ -28,9 +33,10 @@ namespace TPR_Lab1
             this.N = N;
         }
 
-        public Strategy(int N)
+        public Strategy(int N, string name="")
         {
             this.N = N;
+            Name = name;
             p = new Matrix(N, N);
             r = new Matrix(N, N);
         }
@@ -46,6 +52,7 @@ namespace TPR_Lab1
         public void Save(TextWriter tw)
         {
             tw.WriteLine(N);
+            tw.WriteLine(Name);
             r.Save(tw);
             p.Save(tw);
         }
@@ -53,6 +60,7 @@ namespace TPR_Lab1
         public void Load(TextReader tr)
         {
             N = int.Parse(tr.ReadLine());
+            Name = tr.ReadLine();
             r = new Matrix();
             r.Load(tr);
             p = new Matrix();

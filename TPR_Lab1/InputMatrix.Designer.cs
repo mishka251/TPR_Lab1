@@ -28,80 +28,86 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.Cancel = new System.Windows.Forms.Button();
-            this.OK = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.button_Cancel = new System.Windows.Forms.Button();
+            this.button_OK = new System.Windows.Forms.Button();
+            this.dataGridView_Input = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Input)).BeginInit();
             this.SuspendLayout();
             // 
-            // Cancel
+            // button_Cancel
             // 
-            this.Cancel.Location = new System.Drawing.Point(349, 240);
-            this.Cancel.Name = "Cancel";
-            this.Cancel.Size = new System.Drawing.Size(75, 23);
-            this.Cancel.TabIndex = 0;
-            this.Cancel.Text = "Отмена";
-            this.Cancel.UseVisualStyleBackColor = true;
-            this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
+            this.button_Cancel.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.button_Cancel.Location = new System.Drawing.Point(319, 240);
+            this.button_Cancel.Name = "button_Cancel";
+            this.button_Cancel.Size = new System.Drawing.Size(138, 28);
+            this.button_Cancel.TabIndex = 0;
+            this.button_Cancel.Text = "Отмена";
+            this.button_Cancel.UseVisualStyleBackColor = false;
+            this.button_Cancel.Click += new System.EventHandler(this.Cancel_Click);
             // 
-            // OK
+            // button_OK
             // 
-            this.OK.Location = new System.Drawing.Point(453, 240);
-            this.OK.Name = "OK";
-            this.OK.Size = new System.Drawing.Size(75, 23);
-            this.OK.TabIndex = 1;
-            this.OK.Text = "OK";
-            this.OK.UseVisualStyleBackColor = true;
-            this.OK.Click += new System.EventHandler(this.OK_Click);
+            this.button_OK.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.button_OK.Location = new System.Drawing.Point(463, 240);
+            this.button_OK.Name = "button_OK";
+            this.button_OK.Size = new System.Drawing.Size(138, 28);
+            this.button_OK.TabIndex = 1;
+            this.button_OK.Text = "OK";
+            this.button_OK.UseVisualStyleBackColor = false;
+            this.button_OK.Click += new System.EventHandler(this.OK_Click);
             // 
-            // dataGridView1
+            // dataGridView_Input
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.NullValue = null;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.Format = "N2";
-            dataGridViewCellStyle4.NullValue = null;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.Location = new System.Drawing.Point(22, 12);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
-            this.dataGridView1.TabIndex = 2;
+            this.dataGridView_Input.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridView_Input.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.NullValue = null;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_Input.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView_Input.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = null;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_Input.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView_Input.Location = new System.Drawing.Point(24, 23);
+            this.dataGridView_Input.Name = "dataGridView_Input";
+            this.dataGridView_Input.Size = new System.Drawing.Size(577, 193);
+            this.dataGridView_Input.TabIndex = 2;
             // 
             // InputMatrix
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(541, 287);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.OK);
-            this.Controls.Add(this.Cancel);
+            this.ClientSize = new System.Drawing.Size(624, 280);
+            this.Controls.Add(this.dataGridView_Input);
+            this.Controls.Add(this.button_OK);
+            this.Controls.Add(this.button_Cancel);
+            this.MaximumSize = new System.Drawing.Size(640, 315);
+            this.MinimumSize = new System.Drawing.Size(640, 315);
             this.Name = "InputMatrix";
             this.Text = "InputMatrix";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Input)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button Cancel;
-        private System.Windows.Forms.Button OK;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button_Cancel;
+        private System.Windows.Forms.Button button_OK;
+        private System.Windows.Forms.DataGridView dataGridView_Input;
     }
 }

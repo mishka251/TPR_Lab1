@@ -17,23 +17,23 @@ namespace TPR_Lab1
         {
             InitializeComponent();
             model = m;
-            numericUpDown1.Maximum = m.N;
+            numericUpDown_startState.Maximum = m.N;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
 
-            int sit = (int)numericUpDown1.Value;
+            int sit = (int)numericUpDown_startState.Value;
 
             Graph gr = new Graph();
 
-            Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            Bitmap bmp = new Bitmap(pictureBox_Graph.Width, pictureBox_Graph.Height);
 
             Graphics g = Graphics.FromImage(bmp);
 
-            gr.Draw(model, g, pictureBox1.Width, pictureBox1.Height, sit-1/*, (int)model.d[sit-1, model.n-1]*/);
+            gr.Draw(model, g, pictureBox_Graph.Width, pictureBox_Graph.Height, sit-1);
 
-            pictureBox1.Image = bmp;
+            pictureBox_Graph.Image = bmp;
 
         }
     }
