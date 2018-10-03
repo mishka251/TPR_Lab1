@@ -23,7 +23,7 @@ namespace TPR_Lab1
             this.dgv_p.RowCount = n + 1;
             this.dgv_p.ColumnCount = m;
             dgv_p.ColumnHeadersVisible = false;
-            dgv_p.RowHeadersVisible = false;          
+            dgv_p.RowHeadersVisible = false;
             dgv_p.AllowUserToAddRows = false;
 
             this.dgv_c.RowCount = n + 1;
@@ -48,7 +48,7 @@ namespace TPR_Lab1
                 {
                     strategy.p[i, j] = double.Parse(dgv_p[j, i].Value.ToString().Replace(".", ","));
                     sum += strategy.p[i, j];
-                    strategy.r[i, j]= double.Parse(dgv_c[j, i].Value.ToString().Replace(".", ","));
+                    strategy.r[i, j] = double.Parse(dgv_c[j, i].Value.ToString().Replace(".", ","));
                 }
                 if (Math.Abs(sum - 1) > 1E-5)
                     ok = false;
@@ -56,7 +56,7 @@ namespace TPR_Lab1
 
             strategy.Name = tbName.Text;
 
-            if (this.Text.IndexOf("вероятностей") != -1 && !ok)
+            if (!ok)
 
             {
                 MessageBox.Show("Сумма в строке не равна 1");
