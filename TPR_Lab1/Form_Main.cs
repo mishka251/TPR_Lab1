@@ -155,19 +155,11 @@ namespace TPR_Lab1
 
             for (int i = 0; i < k; i++)
             {
-                Matrix p, r;
-                InputMatrix input = new InputMatrix(model.N, model.N, "матрица вероятностей для " + (i + 1) + " стратегии");
-                if (input.ShowDialog() == DialogResult.Cancel)
-                    return;
-                p = input.mat;
-
-                input = new InputMatrix(model.N, model.N, "матрица доходностей для " + (i + 1) + " стратегии");
+                var input = new InputStrat(model.N, model.N, "Ввод " + (i + 1) + " стратегии");
                 if (input.ShowDialog() == DialogResult.Cancel)
                     return;
 
-                r = input.mat;
-                Strategy s = new Strategy(p, r, model.N);
-                model.strategies[i] = s;
+                model.strategies[i] = input.strategy;
             }
             ShowMatrixes();
         }

@@ -4,28 +4,36 @@ using System.Windows.Forms;
 
 namespace TPR_Lab1
 {
-    public partial class InputMatrix : Form
+    public partial class InputStrat : Form
     {
         int n, m;
-        public Matrix mat;
-        public InputMatrix(int n, int m, string name = "") : base()
+        public Strategy strategy;
+        public InputStrat(int n, int m, string name = "") : base()
         {
             this.n = n;
             this.m = m;
 
 
-            mat = new Matrix(n, m);
+            strategy = new Strategy(n);
             InitializeComponent();
 
-            this.dataGridView_Input.RowCount = n + 1;
-            this.dataGridView_Input.ColumnCount = m;
-            dataGridView_Input.ColumnHeadersVisible = false;
-            dataGridView_Input.RowHeadersVisible = false;
             this.Text = name;
-            dataGridView_Input.AllowUserToAddRows = false;
+
+
+            this.dgv_p.RowCount = n + 1;
+            this.dgv_p.ColumnCount = m;
+            dgv_p.ColumnHeadersVisible = false;
+            dgv_p.RowHeadersVisible = false;          
+            dgv_p.AllowUserToAddRows = false;
+
+            this.dgv_c.RowCount = n + 1;
+            this.dgv_c.ColumnCount = m;
+            dgv_c.ColumnHeadersVisible = false;
+            dgv_c.RowHeadersVisible = false;
+            dgv_c.AllowUserToAddRows = false;
         }
 
-        public InputMatrix()
+        public InputStrat()
         {
             InitializeComponent();
         }
@@ -38,12 +46,15 @@ namespace TPR_Lab1
                 double sum = 0;
                 for (int j = 0; j < m; j++)
                 {
-                    mat[i, j] = double.Parse(dataGridView_Input[j, i].Value.ToString().Replace(".", ","));
-                    sum += mat[i, j];
+                    strategy.p[i, j] = double.Parse(dgv_p[j, i].Value.ToString().Replace(".", ","));
+                    sum += strategy.p[i, j];
+                    strategy.r[i, j]= double.Parse(dgv_c[j, i].Value.ToString().Replace(".", ","));
                 }
                 if (Math.Abs(sum - 1) > 1E-5)
                     ok = false;
             }
+
+            strategy.Name = tbName.Text;
 
             if (this.Text.IndexOf("вероятностей") != -1 && !ok)
 
