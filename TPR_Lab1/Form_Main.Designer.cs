@@ -172,21 +172,31 @@
             // 
             // dgv_V
             // 
+            this.dgv_V.AllowUserToAddRows = false;
+            this.dgv_V.AllowUserToDeleteRows = false;
+            this.dgv_V.AllowUserToResizeColumns = false;
+            this.dgv_V.AllowUserToResizeRows = false;
             this.dgv_V.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgv_V.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgv_V.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_V.Location = new System.Drawing.Point(6, 19);
             this.dgv_V.Name = "dgv_V";
+            this.dgv_V.ReadOnly = true;
             this.dgv_V.Size = new System.Drawing.Size(596, 121);
             this.dgv_V.TabIndex = 10;
             // 
             // dgv_D
             // 
+            this.dgv_D.AllowUserToAddRows = false;
+            this.dgv_D.AllowUserToDeleteRows = false;
+            this.dgv_D.AllowUserToResizeColumns = false;
+            this.dgv_D.AllowUserToResizeRows = false;
             this.dgv_D.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgv_D.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgv_D.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_D.Location = new System.Drawing.Point(6, 19);
             this.dgv_D.Name = "dgv_D";
+            this.dgv_D.ReadOnly = true;
             this.dgv_D.Size = new System.Drawing.Size(596, 121);
             this.dgv_D.TabIndex = 11;
             // 
@@ -263,9 +273,9 @@
             this.label_V1.AutoSize = true;
             this.label_V1.Location = new System.Drawing.Point(183, 25);
             this.label_V1.Name = "label_V1";
-            this.label_V1.Size = new System.Drawing.Size(181, 13);
+            this.label_V1.Size = new System.Drawing.Size(187, 13);
             this.label_V1.TabIndex = 2;
-            this.label_V1.Text = "Матрица перехоных вероятностей";
+            this.label_V1.Text = "Матрица переходных вероятностей";
             // 
             // dataGridView_InputDateD
             // 
@@ -279,6 +289,10 @@
             // 
             // dataGridView_InputDateV
             // 
+            this.dataGridView_InputDateV.AllowUserToAddRows = false;
+            this.dataGridView_InputDateV.AllowUserToDeleteRows = false;
+            this.dataGridView_InputDateV.AllowUserToResizeColumns = false;
+            this.dataGridView_InputDateV.AllowUserToResizeRows = false;
             this.dataGridView_InputDateV.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView_InputDateV.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView_InputDateV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;

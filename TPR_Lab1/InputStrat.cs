@@ -57,7 +57,6 @@ namespace TPR_Lab1
             strategy.Name = tbName.Text;
 
             if (!ok)
-
             {
                 MessageBox.Show("Сумма в строке не равна 1");
                 return;

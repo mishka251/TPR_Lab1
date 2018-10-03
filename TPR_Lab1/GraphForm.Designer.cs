@@ -41,7 +41,7 @@
             this.pictureBox_Graph.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox_Graph.Location = new System.Drawing.Point(12, 12);
             this.pictureBox_Graph.Name = "pictureBox_Graph";
-            this.pictureBox_Graph.Size = new System.Drawing.Size(670, 372);
+            this.pictureBox_Graph.Size = new System.Drawing.Size(670, 455);
             this.pictureBox_Graph.TabIndex = 0;
             this.pictureBox_Graph.TabStop = false;
             // 
