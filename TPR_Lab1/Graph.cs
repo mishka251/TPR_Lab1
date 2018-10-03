@@ -38,39 +38,39 @@ namespace TPR_Lab1
             g.DrawLine(pen, (int)(p1.X + R * vec.X / len), (int)(p1.Y + R * vec.Y / len), (int)(p2.X - R * vec.X / len), (int)(p2.Y - R * vec.Y / len));
 
 
-            Point p = new Point
-            {
-                X = (int)(p1.X + 5.0 * vec.X / 16),
-                Y = (int)(p1.Y + 5.0 * vec.Y / 16) + 10
-            };
+            //Point p = new Point
+            //{
+            //    X = (int)(p1.X + 5.0 * vec.X / 16),
+            //    Y = (int)(p1.Y + 5.0 * vec.Y / 16) + 10
+            //};
 
-            Point c = new Point
-            {
-                X = (int)(p1.X + 5.0 * vec.X / 16),
-                Y = (int)(p1.Y + 5.0 * vec.Y / 16) - 20
-            };
+            //Point c = new Point
+            //{
+            //    X = (int)(p1.X + 5.0 * vec.X / 16),
+            //    Y = (int)(p1.Y + 5.0 * vec.Y / 16) - 20
+            //};
 
 
-//<<<<<<< HEAD
-//            g.TranslateTransform(p.X, p.Y);
+////<<<<<<< HEAD
+////            g.TranslateTransform(p.X, p.Y);
+////            g.RotateTransform((float)(vec.Y * 180.0 / vec.X / Math.PI));
+////            g.DrawString(prop.ToString(), font, MyPens[strat].Brush, 0, 0);
+////            g.RotateTransform(-(float)(vec.Y * 180.0 / vec.X / Math.PI));
+////            g.TranslateTransform(-p.X, -p.Y);
+////=======
+//            //g.TranslateTransform(p.X, p.Y);
+//            //g.RotateTransform((float)(vec.Y * 180.0 / vec.X / Math.PI));
+
+//            //g.DrawString(prop.ToString(), font, MyPens[strat].Brush, 0, 0);
+//            //g.RotateTransform(-(float)(vec.Y * 180.0 / vec.X / Math.PI));
+//            //g.TranslateTransform(-p.X, -p.Y);
+////>>>>>>> ec73972f3b2338cf882691ebd162ecf295942693
+
+//            g.TranslateTransform(c.X, c.Y);
 //            g.RotateTransform((float)(vec.Y * 180.0 / vec.X / Math.PI));
-//            g.DrawString(prop.ToString(), font, MyPens[strat].Brush, 0, 0);
+//            g.DrawString(cost.ToString()+"; "+ prop.ToString(), font, Brushes.Black, 0, 0);
 //            g.RotateTransform(-(float)(vec.Y * 180.0 / vec.X / Math.PI));
-//            g.TranslateTransform(-p.X, -p.Y);
-//=======
-            //g.TranslateTransform(p.X, p.Y);
-            //g.RotateTransform((float)(vec.Y * 180.0 / vec.X / Math.PI));
-
-            //g.DrawString(prop.ToString(), font, MyPens[strat].Brush, 0, 0);
-            //g.RotateTransform(-(float)(vec.Y * 180.0 / vec.X / Math.PI));
-            //g.TranslateTransform(-p.X, -p.Y);
-//>>>>>>> ec73972f3b2338cf882691ebd162ecf295942693
-
-            g.TranslateTransform(c.X, c.Y);
-            g.RotateTransform((float)(vec.Y * 180.0 / vec.X / Math.PI));
-            g.DrawString(cost.ToString()+"; "+ prop.ToString(), font, Brushes.Black, 0, 0);
-            g.RotateTransform(-(float)(vec.Y * 180.0 / vec.X / Math.PI));
-            g.TranslateTransform(-c.X, -c.Y);
+//            g.TranslateTransform(-c.X, -c.Y);
         }
 
         public void Draw(Model model, Graphics g, int width, int height, int sit/*, int strat*/)
@@ -112,15 +112,15 @@ namespace TPR_Lab1
                     DrawSituation(g, index, time);
 
 
-            DrawStrategies(g, height, model.strategies.Length);
+            DrawStrategies(g,model,  height);
         }
 
-        void DrawStrategies(Graphics g, int height, int count)
+        void DrawStrategies(Graphics g, Model model, int height)
         {
             int X = 20;
-            for (int i = 0; i < count; i++)
+            for (int i = 0; i < model.strategies.Length; i++)
             {
-                g.DrawString((i + 1).ToString(), font, MyPens[i].Brush, X, height - 20);
+                g.DrawString(model.strategies[i].Name, font, MyPens[i].Brush, X, height - 20);
                 X += 40;
             }
         }

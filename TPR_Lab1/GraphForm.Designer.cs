@@ -38,6 +38,7 @@
             // 
             // pictureBox_Graph
             // 
+            this.pictureBox_Graph.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox_Graph.Location = new System.Drawing.Point(12, 12);
             this.pictureBox_Graph.Name = "pictureBox_Graph";
             this.pictureBox_Graph.Size = new System.Drawing.Size(670, 372);
