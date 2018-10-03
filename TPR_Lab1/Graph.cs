@@ -37,53 +37,19 @@ namespace TPR_Lab1
 
             g.DrawLine(pen, (int)(p1.X + R * vec.X / len), (int)(p1.Y + R * vec.Y / len), (int)(p2.X - R * vec.X / len), (int)(p2.Y - R * vec.Y / len));
 
-
-            //Point p = new Point
-            //{
-            //    X = (int)(p1.X + 5.0 * vec.X / 16),
-            //    Y = (int)(p1.Y + 5.0 * vec.Y / 16) + 10
-            //};
-
-            //Point c = new Point
-            //{
-            //    X = (int)(p1.X + 5.0 * vec.X / 16),
-            //    Y = (int)(p1.Y + 5.0 * vec.Y / 16) - 20
-            //};
-
-
-////<<<<<<< HEAD
-////            g.TranslateTransform(p.X, p.Y);
-////            g.RotateTransform((float)(vec.Y * 180.0 / vec.X / Math.PI));
-////            g.DrawString(prop.ToString(), font, MyPens[strat].Brush, 0, 0);
-////            g.RotateTransform(-(float)(vec.Y * 180.0 / vec.X / Math.PI));
-////            g.TranslateTransform(-p.X, -p.Y);
-////=======
-//            //g.TranslateTransform(p.X, p.Y);
-//            //g.RotateTransform((float)(vec.Y * 180.0 / vec.X / Math.PI));
-
-//            //g.DrawString(prop.ToString(), font, MyPens[strat].Brush, 0, 0);
-//            //g.RotateTransform(-(float)(vec.Y * 180.0 / vec.X / Math.PI));
-//            //g.TranslateTransform(-p.X, -p.Y);
-////>>>>>>> ec73972f3b2338cf882691ebd162ecf295942693
-
-//            g.TranslateTransform(c.X, c.Y);
-//            g.RotateTransform((float)(vec.Y * 180.0 / vec.X / Math.PI));
-//            g.DrawString(cost.ToString()+"; "+ prop.ToString(), font, Brushes.Black, 0, 0);
-//            g.RotateTransform(-(float)(vec.Y * 180.0 / vec.X / Math.PI));
-//            g.TranslateTransform(-c.X, -c.Y);
         }
 
-        public void Draw(Model model, Graphics g, int width, int height, int sit/*, int strat*/)
+        public void Draw(Model model, Graphics g, int width, int height, int sit)
         {
             int n = model.n;
             int N = model.N;
 
-            situation_coords = new Point[N, n];
+            situation_coords = new Point[N, n+1];
 
-            int step_w = (width - 30) / n;// - 1);
+            int step_w = (width - 30) / n;
             int step_h = (height - 50) / N;
 
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i <= n; i++)
             {
                 int x = 25 + step_w * i;
                 for (int j = 0; j < N; j++)
@@ -99,7 +65,7 @@ namespace TPR_Lab1
                 DrawArrow(g, strat, sit, 0, index, 1, model.strategies[strat].p[sit, index], model.strategies[strat].r[sit, index]);
 
 
-            for (int time = 2; time < n; time++)//каждое время
+            for (int time = 2; time <= n; time++)//каждое время
                 for (int sit1 = 0; sit1 < N; sit1++)//из каждой в следующие
                 {
                     strat = (int)model.d[sit, time];
@@ -108,7 +74,7 @@ namespace TPR_Lab1
                 }
 
             for (int index = 0; index < N; index++)//рисуем ситуации для всех времен
-                for (int time = 0; time < n ; time++)
+                for (int time = 0; time <= n ; time++)
                     DrawSituation(g, index, time);
 
 
