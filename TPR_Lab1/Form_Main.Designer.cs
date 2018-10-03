@@ -98,6 +98,7 @@
             0,
             0,
             0});
+            this.NumericUpDown_countM.ValueChanged += new System.EventHandler(this.NumericUpDown_countM_ValueChanged);
             // 
             // NumericUpDown_countState
             // 
@@ -232,7 +233,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(893, 499);
+            this.ClientSize = new System.Drawing.Size(893, 496);
             this.Controls.Add(this.groupBox_matrixD);
             this.Controls.Add(this.groupBox_matrixV);
             this.Controls.Add(this.groupBox_Count);

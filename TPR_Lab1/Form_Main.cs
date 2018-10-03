@@ -17,31 +17,34 @@ namespace TPR_Lab1
             model.Calculate();
 
             dgv_D.RowCount = model.d.n;
-            dgv_D.ColumnCount = model.d.m;
+            dgv_D.ColumnCount = model.d.m - 1;
 
             dgv_V.RowCount = model.v.n;
-            dgv_V.ColumnCount = model.v.m;
+            dgv_V.ColumnCount = model.v.m - 1;
 
+
+
+            dgv_D.RowHeadersWidth = 200;
             for (int i = 0; i < model.d.n; i++)
             {
                 dgv_D.Rows[i].HeaderCell.Value = "состояние" + (i + 1);
 
-                for (int j = 0; j < model.d.m; j++)
+                for (int j = 1; j < model.d.m; j++)
                 {
-                    dgv_D[j, i].Value = model.d[i, j] + 1;
-                    dgv_D.Columns[j].HeaderText = "шаг " + j;
+                    dgv_D[j - 1, i].Value = model.d[i, j] + 1;
+                    dgv_D.Columns[j - 1].HeaderText = "шаг " + j;
                 }
             }
 
-
+            dgv_V.RowHeadersWidth = 200;
             for (int i = 0; i < model.v.n; i++)
             {
                 dgv_V.Rows[i].HeaderCell.Value = "состояние" + (i + 1);
 
-                for (int j = 0; j < model.v.m; j++)
+                for (int j = 1; j < model.v.m; j++)
                 {
-                    dgv_V[j, i].Value = model.v[i, j];
-                    dgv_V.Columns[j].HeaderText = "шаг " + j;
+                    dgv_V[j - 1, i].Value = model.v[i, j];
+                    dgv_V.Columns[j - 1].HeaderText = "шаг " + j;
 
                 }
             }
@@ -120,5 +123,9 @@ namespace TPR_Lab1
             gf.Show();
         }
 
+        private void NumericUpDown_countM_ValueChanged(object sender, EventArgs e)
+        {
+            model.n = (int)NumericUpDown_countM.Value;
+        }
     }
 }
