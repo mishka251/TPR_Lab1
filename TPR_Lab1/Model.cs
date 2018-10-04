@@ -100,7 +100,8 @@ namespace TPR_Lab1
             }
             else
             {
-                for (int i = 0; i < N; i++)
+                SituationsNames[0] = line;
+                for (int i = 1; i < N; i++)
                     SituationsNames[i] = tr.ReadLine();
 
                 count = int.Parse(tr.ReadLine());
