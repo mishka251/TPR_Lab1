@@ -44,10 +44,10 @@ namespace TPR_Lab1
                 if (Math.Abs(sum - 1) > 1E-5)
                     ok = false;
             }
-
             if (this.Text.IndexOf("вероятностей") != -1 && !ok)
+
             {
-                MessageBox.Show("Сумма строке не 1");
+                MessageBox.Show("Сумма в строке не равна 1");
                 return;
             }
 

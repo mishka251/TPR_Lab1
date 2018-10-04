@@ -7,7 +7,7 @@ namespace TPR_Lab1
     class Graph
     {
 
-        public static Pen[] MyPens = { Pens.Black, Pens.Violet, Pens.Blue, Pens.Green, Pens.Orange };
+        public static Pen[] MyPens = { Pens.Red, Pens.Orange, Pens.DarkGreen, Pens.LightGreen, Pens.Gray };
         public static Font font = new Font(SystemFonts.DefaultFont, FontStyle.Regular);
         const int R = 14;
         //координаты для каждой ситуации каждого шага[ситуация, шаг]
@@ -51,15 +51,9 @@ namespace TPR_Lab1
             };
 
 
-            g.TranslateTransform(p.X, p.Y);
-            g.RotateTransform((float)(vec.Y * 180.0 / vec.X / Math.PI));
-            g.DrawString(prop.ToString(), font, MyPens[strat].Brush, 0, 0);
-            g.RotateTransform(-(float)(vec.Y * 180.0 / vec.X / Math.PI));
-            g.TranslateTransform(-p.X, -p.Y);
-
             g.TranslateTransform(c.X, c.Y);
             g.RotateTransform((float)(vec.Y * 180.0 / vec.X / Math.PI));
-            g.DrawString(cost.ToString(), font, MyPens[strat].Brush, 0, 0);
+            g.DrawString(cost.ToString()+"; "+ prop.ToString(), font, Brushes.Black, 0, 0);
             g.RotateTransform(-(float)(vec.Y * 180.0 / vec.X / Math.PI));
             g.TranslateTransform(-c.X, -c.Y);
         }
@@ -71,35 +65,35 @@ namespace TPR_Lab1
 
             situation_coords = new Point[N, n];
 
-            int step_w = (width - 30) / n;
-            int step_h = (height - 30) / N;
+            int step_w = (width - 30) / n;// - 1);
+            int step_h = (height - 50) / N;
 
             for (int i = 0; i < n; i++)
             {
-                int x = 15 + step_w * i;
+                int x = 25 + step_w * i;
                 for (int j = 0; j < N; j++)
                 {
-                    int y = 15 + step_h * j;
+                    int y = 35 + step_h * j;
                     situation_coords[j, i] = new Point(x, y);
                 }
             }
 
-            int strat = (int)model.d[0, sit];
+            int strat = (int)model.d[sit, 1];
 
             for (int index = 0; index < N; index++)//стрелки из выбранной в следующие
                 DrawArrow(g, strat, sit, 0, index, 1, model.strategies[strat].p[sit, index], model.strategies[strat].r[sit, index]);
 
 
-            for (int time = 1; time < n - 1; time++)//каждое время
+            for (int time = 2; time < n; time++)//каждое время
                 for (int sit1 = 0; sit1 < N; sit1++)//из каждой в следующие
                 {
-                    strat = (int)model.d[time, sit];
+                    strat = (int)model.d[sit, time];
                     for (int sit2 = 0; sit2 < N; sit2++)//из каждой в следующие
-                        DrawArrow(g, strat, sit1, time, sit2, time + 1, model.strategies[strat].p[sit1, sit2], model.strategies[strat].r[sit1, sit2]);
+                        DrawArrow(g, strat, sit1, time - 1, sit2, time, model.strategies[strat].p[sit1, sit2], model.strategies[strat].r[sit1, sit2]);
                 }
 
             for (int index = 0; index < N; index++)//рисуем ситуации для всех времен
-                for (int time = 0; time < n; time++)
+                for (int time = 0; time < n ; time++)
                     DrawSituation(g, index, time);
 
 

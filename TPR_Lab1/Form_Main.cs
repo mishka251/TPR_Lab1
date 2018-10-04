@@ -29,6 +29,8 @@ namespace TPR_Lab1
             {
                 dgv_D.Rows[i].HeaderCell.Value = "состояние" + (i + 1);
 
+                dgv_D[0, i].Value = "-";
+                dgv_D.Columns[0].HeaderText = "шаг " + 0;
                 for (int j = 1; j < model.d.m; j++)
                 {
                     dgv_D[j - 1, i].Value = model.d[i, j] + 1;
