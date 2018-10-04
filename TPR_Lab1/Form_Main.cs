@@ -22,22 +22,13 @@ namespace TPR_Lab1
             dgv_V.RowCount = model.v.n;
             dgv_V.ColumnCount = model.v.m - 1;
 
-
-
-            //dgv_D.RowHeadersWidth = 200;
-
             dgv_V.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgv_D.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
 
             for (int i = 0; i < model.d.n; i++)
             {
-                dgv_D.Rows[i].HeaderCell.Value = "состояние" + (i + 1);
+                dgv_D.Rows[i].HeaderCell.Value = model.SituationsNames[i];
 
-                //<<<<<<< HEAD
-                //=======
-                //                dgv_D[0, i].Value = "-";
-                //                dgv_D.Columns[0].HeaderText = "шаг " + 0;
-                //>>>>>>> ec73972f3b2338cf882691ebd162ecf295942693
                 for (int j = 1; j < model.d.m; j++)
                 {
                     dgv_D[j - 1, i].Value = model.d[i, j] + 1;
@@ -45,10 +36,9 @@ namespace TPR_Lab1
                 }
             }
 
-            dgv_V.RowHeadersWidth = 200;
             for (int i = 0; i < model.v.n; i++)
             {
-                dgv_V.Rows[i].HeaderCell.Value = "состояние" + (i + 1);
+                dgv_V.Rows[i].HeaderCell.Value = model.SituationsNames[i];
 
                 for (int j = 1; j < model.v.m; j++)
                 {
@@ -77,8 +67,6 @@ namespace TPR_Lab1
         }
 
 
-
-
         void ShowMatrixes()
         {
             dataGridView_InputDateV.RowCount = model.N;
@@ -100,22 +88,20 @@ namespace TPR_Lab1
 
                 for (int sost = 0; sost < model.N; sost++)
                 {
-                    dataGridView_InputDateV[col, sost].Value = "состояние " + (sost + 1);
-                    dataGridView_InputDateD[col, sost].Value = "состояние " + (sost + 1);
+                    dataGridView_InputDateV[col, sost].Value = model.SituationsNames[sost];
+                    dataGridView_InputDateD[col, sost].Value = model.SituationsNames[sost];
 
                     for (int sost2 = 0; sost2 < model.N; sost2++)
                     {
 
-                        dataGridView_InputDateV.Columns[col + sost+1].HeaderText = "состояние " + (sost + 1);
-                        dataGridView_InputDateD.Columns[col + sost+1].HeaderText = "состояние " + (sost + 1);
+                        dataGridView_InputDateV.Columns[col + sost + 1].HeaderText = model.SituationsNames[sost];
+                        dataGridView_InputDateD.Columns[col + sost + 1].HeaderText = model.SituationsNames[sost];
 
                         dataGridView_InputDateV[col + sost + 1, sost2].Value = model.strategies[str].p[sost2, sost];
                         dataGridView_InputDateD[col + sost + 1, sost2].Value = model.strategies[str].r[sost2, sost];
                     }
                 }
-
             }
-
 
         }
 

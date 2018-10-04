@@ -46,7 +46,7 @@ namespace TPR_Lab1
 
             situation_coords = new Point[N, n+1];
 
-            int step_w = (width - 30) / n;
+            int step_w = (width - 30) / (n+1);
             int step_h = (height - 50) / N;
 
             for (int i = 0; i <= n; i++)
