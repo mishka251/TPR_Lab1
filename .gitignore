@@ -2,6 +2,7 @@
 *.log
 */bin*
 */obj*
+.vs/
 .vs*
 *.suo
 .vs/*
