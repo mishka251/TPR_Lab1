@@ -7,20 +7,20 @@ using System.IO;
 
 namespace TPR_Lab1
 {
-   public class Model
+    public class Model
     {
         /// <summary>
         /// Массив стратегий
         /// </summary>
-    public    Strategy[] strategies;
+        public Strategy[] strategies;
         /// <summary>
         /// количество шагов модели
         /// </summary>
-      public  int n;
+        public int n;
         /// <summary>
         /// количество состояний
         /// </summary>
-       public int N;
+        public int N;
         /// <summary>
         /// Матрица для хранения всех q[состояние, стратегия]
         /// </summary>
@@ -28,11 +28,13 @@ namespace TPR_Lab1
         /// <summary>
         /// Матрица для хранения всех вычисленных v[состояние, шаг]
         /// </summary>
-       public Matrix v;
+        public Matrix v;
         /// <summary>
         /// Матрица d - лучшая стратегия для начального состояния и n эпох[состояние, шаг]
         /// </summary>
         public Matrix d;
+
+        public string[] SituationsNames;
         void fill_qs()
         {
             qs = new Matrix(N, strategies.Length);
@@ -53,7 +55,7 @@ namespace TPR_Lab1
                 {
                     double sum = qs[i, k];
                     for (int j = 0; j < N; j++)
-                        sum += strategies[k].p[i, j] * v[j, ep-1];
+                        sum += strategies[k].p[i, j] * v[j, ep - 1];
 
                     if (sum > max)
                     {
@@ -65,6 +67,8 @@ namespace TPR_Lab1
                 d[i, ep] = max_k;
             }
         }
+
+
 
 
         void fill_v()
@@ -84,7 +88,25 @@ namespace TPR_Lab1
             TextReader tr = new StreamReader(file);
             n = int.Parse(tr.ReadLine());
             N = int.Parse(tr.ReadLine());
-            int count = int.Parse(tr.ReadLine());
+
+            int count;
+            SituationsNames = new string[N];
+            string line = tr.ReadLine();
+            if (int.TryParse(line, out int tmp)&&tmp.ToString()==line)
+            {
+                count = tmp;
+                for (int i = 0; i < N; i++)
+                    SituationsNames[i] = "состояние" + (i + 1);
+            }
+            else
+            {
+                for (int i = 0; i < N; i++)
+                    SituationsNames[i] = tr.ReadLine();
+
+                count = int.Parse(tr.ReadLine());
+            }
+
+
             strategies = new Strategy[count];
             for (int i = 0; i < count; i++)
             {
@@ -98,6 +120,10 @@ namespace TPR_Lab1
             TextWriter tw = new StreamWriter(file);
             tw.WriteLine(n);
             tw.WriteLine(N);
+
+            for (int i = 0; i < N; i++)
+                tw.WriteLine(SituationsNames[i]);
+
             tw.WriteLine(strategies.Length);
             for (int i = 0; i < strategies.Length; i++)
                 strategies[i].Save(tw);

@@ -22,15 +22,16 @@ namespace TPR_Lab1
             dgv_V.RowCount = model.v.n;
             dgv_V.ColumnCount = model.v.m - 1;
 
+            dgv_V.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dgv_D.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
 
-
-            dgv_D.RowHeadersWidth = 200;
             for (int i = 0; i < model.d.n; i++)
             {
-                dgv_D.Rows[i].HeaderCell.Value = "состояние" + (i + 1);
+                dgv_D.Rows[i].HeaderCell.Value = model.SituationsNames[i];
 
                 dgv_D[0, i].Value = "-";
                 dgv_D.Columns[0].HeaderText = "шаг " + 0;
+
                 for (int j = 1; j < model.d.m; j++)
                 {
                     dgv_D[j - 1, i].Value = model.d[i, j] + 1;
@@ -38,10 +39,9 @@ namespace TPR_Lab1
                 }
             }
 
-            dgv_V.RowHeadersWidth = 200;
             for (int i = 0; i < model.v.n; i++)
             {
-                dgv_V.Rows[i].HeaderCell.Value = "состояние" + (i + 1);
+                dgv_V.Rows[i].HeaderCell.Value = model.SituationsNames[i];
 
                 for (int j = 1; j < model.v.m; j++)
                 {
@@ -69,6 +69,46 @@ namespace TPR_Lab1
 
         }
 
+
+        void ShowMatrixes()
+        {
+            dataGridView_InputDateV.RowCount = model.N;
+            dataGridView_InputDateV.ColumnCount = (model.N + 1) * model.strategies.Length;
+
+            dataGridView_InputDateD.RowCount = model.N;
+            dataGridView_InputDateD.ColumnCount = (model.N + 1) * model.strategies.Length;
+
+            dataGridView_InputDateD.RowHeadersVisible = false;
+            dataGridView_InputDateV.RowHeadersVisible = false;
+
+            for (int str = 0; str < model.strategies.Length; str++)
+            {
+                int col = (model.N + 1) * str;
+                dataGridView_InputDateV.Columns[col].HeaderText = model.strategies[str].Name;
+                dataGridView_InputDateD.Columns[col].HeaderText = model.strategies[str].Name;
+
+
+
+                for (int sost = 0; sost < model.N; sost++)
+                {
+                    dataGridView_InputDateV[col, sost].Value = model.SituationsNames[sost];
+                    dataGridView_InputDateD[col, sost].Value = model.SituationsNames[sost];
+
+                    for (int sost2 = 0; sost2 < model.N; sost2++)
+                    {
+
+                        dataGridView_InputDateV.Columns[col + sost + 1].HeaderText = model.SituationsNames[sost];
+                        dataGridView_InputDateD.Columns[col + sost + 1].HeaderText = model.SituationsNames[sost];
+
+                        dataGridView_InputDateV[col + sost + 1, sost2].Value = model.strategies[str].p[sost2, sost];
+                        dataGridView_InputDateD[col + sost + 1, sost2].Value = model.strategies[str].r[sost2, sost];
+                    }
+                }
+            }
+
+        }
+
+
         private void Load_Click(object sender, EventArgs e)
         {
             string file;
@@ -90,6 +130,8 @@ namespace TPR_Lab1
             NumericUpDown_countState.Value = model.N;
             NumericUpDown_countStr.Value = model.strategies.Length;
 
+            ShowMatrixes();
+
         }
 
         private void Create_Click(object sender, EventArgs e)
@@ -102,21 +144,13 @@ namespace TPR_Lab1
 
             for (int i = 0; i < k; i++)
             {
-                Matrix p, r;
-                InputMatrix input = new InputMatrix(model.N, model.N, "матрица вероятностей для " + (i + 1) + " стратегии");
-                if (input.ShowDialog() == DialogResult.Cancel)
-                    return;
-                p = input.mat;
-
-                input = new InputMatrix(model.N, model.N, "матрица доходностей для " + (i + 1) + " стратегии");
+                var input = new InputStrat(model.N, model.N, "Ввод " + (i + 1) + " стратегии");
                 if (input.ShowDialog() == DialogResult.Cancel)
                     return;
 
-                r = input.mat;
-                Strategy s = new Strategy(p, r, model.N);
-                model.strategies[i] = s;
+                model.strategies[i] = input.strategy;
             }
-
+            ShowMatrixes();
         }
 
         private void button1_Click(object sender, EventArgs e)

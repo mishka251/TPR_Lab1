@@ -172,21 +172,31 @@
             // 
             // dgv_V
             // 
+            this.dgv_V.AllowUserToAddRows = false;
+            this.dgv_V.AllowUserToDeleteRows = false;
+            this.dgv_V.AllowUserToResizeColumns = false;
+            this.dgv_V.AllowUserToResizeRows = false;
             this.dgv_V.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgv_V.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgv_V.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_V.Location = new System.Drawing.Point(6, 19);
             this.dgv_V.Name = "dgv_V";
+            this.dgv_V.ReadOnly = true;
             this.dgv_V.Size = new System.Drawing.Size(596, 121);
             this.dgv_V.TabIndex = 10;
             // 
             // dgv_D
             // 
+            this.dgv_D.AllowUserToAddRows = false;
+            this.dgv_D.AllowUserToDeleteRows = false;
+            this.dgv_D.AllowUserToResizeColumns = false;
+            this.dgv_D.AllowUserToResizeRows = false;
             this.dgv_D.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgv_D.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgv_D.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_D.Location = new System.Drawing.Point(6, 19);
             this.dgv_D.Name = "dgv_D";
+            this.dgv_D.ReadOnly = true;
             this.dgv_D.Size = new System.Drawing.Size(596, 121);
             this.dgv_D.TabIndex = 11;
             // 
@@ -279,6 +289,10 @@
             // 
             // dataGridView_InputDateV
             // 
+            this.dataGridView_InputDateV.AllowUserToAddRows = false;
+            this.dataGridView_InputDateV.AllowUserToDeleteRows = false;
+            this.dataGridView_InputDateV.AllowUserToResizeColumns = false;
+            this.dataGridView_InputDateV.AllowUserToResizeRows = false;
             this.dataGridView_InputDateV.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView_InputDateV.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView_InputDateV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -338,6 +352,7 @@
         private System.Windows.Forms.GroupBox groupBox_Count;
         private System.Windows.Forms.GroupBox groupBox_matrixV;
         private System.Windows.Forms.GroupBox groupBox_matrixD;
+
         private System.Windows.Forms.GroupBox groupBox_InputDate;
         private System.Windows.Forms.Label label_D1;
         private System.Windows.Forms.Label label_V1;
