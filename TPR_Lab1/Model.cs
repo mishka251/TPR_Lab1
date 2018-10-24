@@ -34,6 +34,9 @@ namespace TPR_Lab1
         /// </summary>
         public Matrix d;
 
+
+
+
         public string[] SituationsNames;
         void fill_qs()
         {

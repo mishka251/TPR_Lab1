@@ -49,6 +49,10 @@
             this.label_V1 = new System.Windows.Forms.Label();
             this.dataGridView_InputDateD = new System.Windows.Forms.DataGridView();
             this.dataGridView_InputDateV = new System.Windows.Forms.DataGridView();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.pictureBox_Graph = new System.Windows.Forms.PictureBox();
+            this.numericUpDown_startState = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.NumericUpDown_countM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumericUpDown_countState)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumericUpDown_countStr)).BeginInit();
@@ -60,12 +64,14 @@
             this.groupBox_InputDate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_InputDateD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_InputDateV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Graph)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_startState)).BeginInit();
             this.SuspendLayout();
             // 
             // button_Start
             // 
             this.button_Start.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.button_Start.Location = new System.Drawing.Point(61, 361);
+            this.button_Start.Location = new System.Drawing.Point(52, 619);
             this.button_Start.Name = "button_Start";
             this.button_Start.Size = new System.Drawing.Size(138, 28);
             this.button_Start.TabIndex = 0;
@@ -76,7 +82,7 @@
             // button_SaveModel
             // 
             this.button_SaveModel.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.button_SaveModel.Location = new System.Drawing.Point(61, 310);
+            this.button_SaveModel.Location = new System.Drawing.Point(52, 569);
             this.button_SaveModel.Name = "button_SaveModel";
             this.button_SaveModel.Size = new System.Drawing.Size(138, 28);
             this.button_SaveModel.TabIndex = 1;
@@ -87,7 +93,7 @@
             // button_LoadModel
             // 
             this.button_LoadModel.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.button_LoadModel.Location = new System.Drawing.Point(61, 276);
+            this.button_LoadModel.Location = new System.Drawing.Point(52, 513);
             this.button_LoadModel.Name = "button_LoadModel";
             this.button_LoadModel.Size = new System.Drawing.Size(138, 28);
             this.button_LoadModel.TabIndex = 2;
@@ -162,7 +168,7 @@
             // button_CreateSystem
             // 
             this.button_CreateSystem.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.button_CreateSystem.Location = new System.Drawing.Point(26, 183);
+            this.button_CreateSystem.Location = new System.Drawing.Point(52, 463);
             this.button_CreateSystem.Name = "button_CreateSystem";
             this.button_CreateSystem.Size = new System.Drawing.Size(138, 28);
             this.button_CreateSystem.TabIndex = 9;
@@ -182,7 +188,7 @@
             this.dgv_V.Location = new System.Drawing.Point(6, 19);
             this.dgv_V.Name = "dgv_V";
             this.dgv_V.ReadOnly = true;
-            this.dgv_V.Size = new System.Drawing.Size(596, 121);
+            this.dgv_V.Size = new System.Drawing.Size(401, 121);
             this.dgv_V.TabIndex = 10;
             // 
             // dgv_D
@@ -194,16 +200,16 @@
             this.dgv_D.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgv_D.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgv_D.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_D.Location = new System.Drawing.Point(6, 19);
+            this.dgv_D.Location = new System.Drawing.Point(6, 26);
             this.dgv_D.Name = "dgv_D";
             this.dgv_D.ReadOnly = true;
-            this.dgv_D.Size = new System.Drawing.Size(596, 121);
+            this.dgv_D.Size = new System.Drawing.Size(401, 121);
             this.dgv_D.TabIndex = 11;
             // 
             // button_Graph
             // 
             this.button_Graph.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.button_Graph.Location = new System.Drawing.Point(61, 407);
+            this.button_Graph.Location = new System.Drawing.Point(1000, 432);
             this.button_Graph.Name = "button_Graph";
             this.button_Graph.Size = new System.Drawing.Size(138, 28);
             this.button_Graph.TabIndex = 14;
@@ -216,13 +222,13 @@
             this.groupBox_Count.Controls.Add(this.label_countState);
             this.groupBox_Count.Controls.Add(this.NumericUpDown_countM);
             this.groupBox_Count.Controls.Add(this.NumericUpDown_countState);
+            this.groupBox_Count.Controls.Add(this.richTextBox1);
             this.groupBox_Count.Controls.Add(this.NumericUpDown_countStr);
             this.groupBox_Count.Controls.Add(this.label_countM);
             this.groupBox_Count.Controls.Add(this.label_countStr);
-            this.groupBox_Count.Controls.Add(this.button_CreateSystem);
             this.groupBox_Count.Location = new System.Drawing.Point(35, 31);
             this.groupBox_Count.Name = "groupBox_Count";
-            this.groupBox_Count.Size = new System.Drawing.Size(206, 226);
+            this.groupBox_Count.Size = new System.Drawing.Size(210, 264);
             this.groupBox_Count.TabIndex = 15;
             this.groupBox_Count.TabStop = false;
             // 
@@ -231,7 +237,7 @@
             this.groupBox_matrixV.Controls.Add(this.dgv_V);
             this.groupBox_matrixV.Location = new System.Drawing.Point(251, 372);
             this.groupBox_matrixV.Name = "groupBox_matrixV";
-            this.groupBox_matrixV.Size = new System.Drawing.Size(608, 147);
+            this.groupBox_matrixV.Size = new System.Drawing.Size(429, 147);
             this.groupBox_matrixV.TabIndex = 16;
             this.groupBox_matrixV.TabStop = false;
             this.groupBox_matrixV.Text = "Матрица V";
@@ -241,7 +247,7 @@
             this.groupBox_matrixD.Controls.Add(this.dgv_D);
             this.groupBox_matrixD.Location = new System.Drawing.Point(251, 543);
             this.groupBox_matrixD.Name = "groupBox_matrixD";
-            this.groupBox_matrixD.Size = new System.Drawing.Size(608, 147);
+            this.groupBox_matrixD.Size = new System.Drawing.Size(443, 147);
             this.groupBox_matrixD.TabIndex = 11;
             this.groupBox_matrixD.TabStop = false;
             this.groupBox_matrixD.Text = "Матрица D";
@@ -254,7 +260,7 @@
             this.groupBox_InputDate.Controls.Add(this.dataGridView_InputDateV);
             this.groupBox_InputDate.Location = new System.Drawing.Point(251, 31);
             this.groupBox_InputDate.Name = "groupBox_InputDate";
-            this.groupBox_InputDate.Size = new System.Drawing.Size(608, 323);
+            this.groupBox_InputDate.Size = new System.Drawing.Size(394, 323);
             this.groupBox_InputDate.TabIndex = 17;
             this.groupBox_InputDate.TabStop = false;
             this.groupBox_InputDate.Text = "Входные данные";
@@ -282,9 +288,9 @@
             this.dataGridView_InputDateD.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView_InputDateD.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView_InputDateD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_InputDateD.Location = new System.Drawing.Point(7, 196);
+            this.dataGridView_InputDateD.Location = new System.Drawing.Point(7, 202);
             this.dataGridView_InputDateD.Name = "dataGridView_InputDateD";
-            this.dataGridView_InputDateD.Size = new System.Drawing.Size(595, 121);
+            this.dataGridView_InputDateD.Size = new System.Drawing.Size(422, 121);
             this.dataGridView_InputDateD.TabIndex = 1;
             // 
             // dataGridView_InputDateV
@@ -298,19 +304,68 @@
             this.dataGridView_InputDateV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_InputDateV.Location = new System.Drawing.Point(6, 41);
             this.dataGridView_InputDateV.Name = "dataGridView_InputDateV";
-            this.dataGridView_InputDateV.Size = new System.Drawing.Size(596, 121);
+            this.dataGridView_InputDateV.Size = new System.Drawing.Size(458, 121);
             this.dataGridView_InputDateV.TabIndex = 0;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(26, 178);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(100, 32);
+            this.richTextBox1.TabIndex = 18;
+            this.richTextBox1.Text = "";
+            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            // 
+            // pictureBox_Graph
+            // 
+            this.pictureBox_Graph.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox_Graph.Location = new System.Drawing.Point(721, 31);
+            this.pictureBox_Graph.Name = "pictureBox_Graph";
+            this.pictureBox_Graph.Size = new System.Drawing.Size(482, 313);
+            this.pictureBox_Graph.TabIndex = 11;
+            this.pictureBox_Graph.TabStop = false;
+            // 
+            // numericUpDown_startState
+            // 
+            this.numericUpDown_startState.Location = new System.Drawing.Point(990, 391);
+            this.numericUpDown_startState.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown_startState.Name = "numericUpDown_startState";
+            this.numericUpDown_startState.Size = new System.Drawing.Size(154, 20);
+            this.numericUpDown_startState.TabIndex = 19;
+            this.numericUpDown_startState.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(997, 361);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(157, 13);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Выбор начального состояния";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(893, 702);
+            this.ClientSize = new System.Drawing.Size(1553, 702);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.numericUpDown_startState);
+            this.Controls.Add(this.pictureBox_Graph);
             this.Controls.Add(this.groupBox_InputDate);
             this.Controls.Add(this.groupBox_matrixD);
             this.Controls.Add(this.groupBox_matrixV);
             this.Controls.Add(this.groupBox_Count);
+            this.Controls.Add(this.button_CreateSystem);
             this.Controls.Add(this.button_Graph);
             this.Controls.Add(this.button_LoadModel);
             this.Controls.Add(this.button_Start);
@@ -330,7 +385,10 @@
             this.groupBox_InputDate.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_InputDateD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_InputDateV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Graph)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_startState)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -358,6 +416,10 @@
         private System.Windows.Forms.Label label_V1;
         private System.Windows.Forms.DataGridView dataGridView_InputDateD;
         private System.Windows.Forms.DataGridView dataGridView_InputDateV;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.PictureBox pictureBox_Graph;
+        private System.Windows.Forms.NumericUpDown numericUpDown_startState;
+        private System.Windows.Forms.Label label1;
     }
 }
 

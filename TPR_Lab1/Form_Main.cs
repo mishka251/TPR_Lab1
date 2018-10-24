@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace TPR_Lab1
@@ -141,7 +142,7 @@ namespace TPR_Lab1
             model.N = (int)NumericUpDown_countState.Value;
             int k = (int)NumericUpDown_countStr.Value;
             model.strategies = new Strategy[k];
-
+            
             for (int i = 0; i < k; i++)
             {
                 var input = new InputStrat(model.N, model.N, "Ввод " + (i + 1) + " стратегии");
@@ -150,18 +151,55 @@ namespace TPR_Lab1
 
                 model.strategies[i] = input.strategy;
             }
+
+            model.SituationsNames = new string[model.N];
+            for (int i = 0; i < model.N; i++)
+                model.SituationsNames[i] = richTextBox1.Text.Split('\n')[i];
+
             ShowMatrixes();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            GraphForm gf = new GraphForm(model);
-            gf.Show();
-        }
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //    GraphForm gf = new GraphForm(model);
+        //    gf.Show();
+        //}
 
         private void NumericUpDown_countM_ValueChanged(object sender, EventArgs e)
         {
             model.n = (int)NumericUpDown_countM.Value;
         }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            int sit = (int)numericUpDown_startState.Value;
+
+            Graph gr = new Graph();
+
+            Bitmap bmp = new Bitmap(pictureBox_Graph.Width, pictureBox_Graph.Height);
+
+            Graphics g = Graphics.FromImage(bmp);
+
+            gr.Draw(model, g, pictureBox_Graph.Width, pictureBox_Graph.Height, sit - 1);
+
+            pictureBox_Graph.Image = bmp;
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
+
 }
