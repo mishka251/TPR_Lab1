@@ -34,6 +34,9 @@ namespace TPR_Lab1
         /// </summary>
         public Matrix d;
 
+
+
+
         public string[] SituationsNames;
         void fill_qs()
         {
@@ -64,7 +67,7 @@ namespace TPR_Lab1
                     }
                 }
                 v[i, ep] = max;
-                d[i, ep] = max_k;
+                d[i, ep] = max_k+1;
             }
         }
 
