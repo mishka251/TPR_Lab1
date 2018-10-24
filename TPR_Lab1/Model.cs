@@ -67,7 +67,7 @@ namespace TPR_Lab1
                     }
                 }
                 v[i, ep] = max;
-                d[i, ep] = max_k;
+                d[i, ep] = max_k+1;
             }
         }
 
