@@ -42,8 +42,12 @@ namespace TPR_Lab1
         {
             qs = new Matrix(N, strategies.Length);
             for (int i = 0; i < strategies.Length; i++)
+            {
                 for (int j = 0; j < N; j++)
+                {
                     qs[j, i] = strategies[i].calculateSituation(j);
+                }
+            }
         }
 
 
@@ -58,7 +62,9 @@ namespace TPR_Lab1
                 {
                     double sum = qs[i, k];
                     for (int j = 0; j < N; j++)
+                    {
                         sum += strategies[k].p[i, j] * v[j, ep - 1];
+                    }
 
                     if (sum > max)
                     {
@@ -67,7 +73,7 @@ namespace TPR_Lab1
                     }
                 }
                 v[i, ep] = max;
-                d[i, ep] = max_k+1;
+                d[i, ep] = max_k;
             }
         }
 
@@ -79,10 +85,14 @@ namespace TPR_Lab1
             v = new Matrix(N, n + 1);
             d = new Matrix(N, n + 1);
             for (int i = 0; i < N; i++)
+            {
                 v[i, 0] = 0;
+            }
 
             for (int i = 1; i <= n; i++)
+            {
                 calculate_epoch(i);
+            }
         }
 
 
@@ -99,13 +109,17 @@ namespace TPR_Lab1
             {
                 count = tmp;
                 for (int i = 0; i < N; i++)
+                {
                     SituationsNames[i] = "состояние" + (i + 1);
+                }
             }
             else
             {
                 SituationsNames[0] = line;
                 for (int i = 1; i < N; i++)
+                {
                     SituationsNames[i] = tr.ReadLine();
+                }
 
                 count = int.Parse(tr.ReadLine());
             }
@@ -126,11 +140,16 @@ namespace TPR_Lab1
             tw.WriteLine(N);
 
             for (int i = 0; i < N; i++)
+            {
                 tw.WriteLine(SituationsNames[i]);
+            }
 
             tw.WriteLine(strategies.Length);
             for (int i = 0; i < strategies.Length; i++)
+            {
                 strategies[i].Save(tw);
+            }
+
             tw.Close();
         }
 

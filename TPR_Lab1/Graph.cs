@@ -61,21 +61,29 @@ namespace TPR_Lab1
             int strat = (int)model.d[sit, 1];
 
             for (int index = 0; index < N; index++)//стрелки из выбранной в следующие
+            {
                 DrawArrow(g, strat, sit, 0, index, 1, model.strategies[strat].p[sit, index], model.strategies[strat].r[sit, index]);
-
+            }
 
             for (int time = 2; time <= n; time++)//каждое время
+            {
                 for (int sit1 = 0; sit1 < N; sit1++)//из каждой в следующие
                 {
                     strat = (int)model.d[sit, time];
                     for (int sit2 = 0; sit2 < N; sit2++)//из каждой в следующие
+                    {
                         DrawArrow(g, strat, sit1, time - 1, sit2, time, model.strategies[strat].p[sit1, sit2], model.strategies[strat].r[sit1, sit2]);
+                    }
                 }
+            }
 
             for (int index = 0; index < N; index++)//рисуем ситуации для всех времен
+            {
                 for (int time = 0; time <= n ; time++)
+                {
                     DrawSituation(g, index, time);
-
+                }
+            }
 
             DrawStrategies(g,model,  height);
         }

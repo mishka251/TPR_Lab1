@@ -39,7 +39,9 @@ namespace TPR_Lab1
             {
                 string[] str = tr.ReadLine().Split(' ');
                 for (int j = 0; j < m; j++)
+                {
                     values[i, j] = double.Parse(str[j]);
+                }
             }
 
         }
@@ -51,7 +53,10 @@ namespace TPR_Lab1
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < m; j++)
+                {
                     tw.Write(values[i, j] + " ");
+                }
+
                 tw.WriteLine();
             }
         }

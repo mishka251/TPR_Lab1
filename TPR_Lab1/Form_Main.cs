@@ -61,7 +61,10 @@ namespace TPR_Lab1
         private void start_Click(object sender, EventArgs e)
         {
             if (model == null)
+            {
                 return;
+            }
+
             model.Calculate();
             ShowMatsDV(model.d, dgv_D);
             ShowMatsDV(model.v, dgv_V);
@@ -77,7 +80,10 @@ namespace TPR_Lab1
             };
             DialogResult dr = sfd.ShowDialog();
             if (dr == DialogResult.Abort || dr == DialogResult.Cancel)
+            {
                 return;
+            }
+
             file = sfd.FileName;
             model.Save(file);
 
@@ -131,7 +137,10 @@ namespace TPR_Lab1
             };
             DialogResult dr = ofd.ShowDialog();
             if (dr == DialogResult.Abort || dr == DialogResult.Cancel)
+            {
                 return;
+            }
+
             file = ofd.FileName;
             model = new Model();
             model.Load(file);
@@ -151,8 +160,12 @@ namespace TPR_Lab1
             try
             {
                 for (int i = 0; i < mat.n; i++)
+                {
                     for (int j = 0; j < mat.m; j++)
+                    {
                         mat[i, j] = double.Parse(dgv[j, i].Value.ToString().Replace(".", ","));
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -169,18 +182,25 @@ namespace TPR_Lab1
             {
                 double sum = 0;
                 for (int j = 0; j < p.m; j++)
+                {
                     sum += p[i, j];
+                }
+
                 if (Math.Abs(sum - 1) > 1E-5)
+                {
                     return false;
+                }
             }
             return true;
         }
 
         private void Create_Click(object sender, EventArgs e)
         {
-            model = new Model();
-            model.n = (int)NumericUpDown_countM.Value;
-            model.N = (int)NumericUpDown_countState.Value;
+            model = new Model
+            {
+                n = (int)NumericUpDown_countM.Value,
+                N = (int)NumericUpDown_countState.Value
+            };
             int k = (int)NumericUpDown_countStr.Value;
             model.strategies = new Strategy[k];
 
@@ -189,38 +209,59 @@ namespace TPR_Lab1
 
                 Strategy str = new Strategy(model.N);
                 foreach (Control tb in panels[i].Controls)
+                {
                     if (tb is TextBox)
+                    {
                         str.Name = tb.Text;
+                    }
+                }
 
                 foreach (Control dgv in panels[i].Controls)
+                {
                     if (dgv is DataGridView)
-                        using (var dgv1 = dgv as DataGridView)
-                        {
-                            if (dgv1.Name.IndexOf(dgv_p.Name) != -1)
+                    {
+                       // using (var dgv1 = dgv as DataGridView)
+                        //{
+                            if ((dgv as DataGridView).Name.IndexOf(dgv_p.Name) != -1)
                             {
-                                str.p = MatFromDgv(dgv1);
+                                str.p = MatFromDgv(dgv as DataGridView);
                                 if (!CheckPMatrix(str.p))
+                                {
                                     MessageBox.Show("Ошибка правильности матрицы вероятностей " + (i + 1) + " стратегии");
+                                }
                             }
                             else
-                                str.r = MatFromDgv(dgv1);
-                        }
+                            {
+                                str.r = MatFromDgv(dgv as DataGridView);
+                            }
+                       // }
+                    }
+                }
+
                 model.strategies[i] = str;
             }
 
             model.SituationsNames = new string[model.N];
             string[] rtb = richTextBox1.Text.Split('\n');
             for (int i = 0; i < model.N && i < rtb.Length; i++)
+            {
                 model.SituationsNames[i] = rtb[i];
+            }
+
             for (int i = rtb.Length; i < model.N; i++)
+            {
                 model.SituationsNames[i] = "";
+            }
+
             ShowMatrixes();
         }
 
         private void NumericUpDown_countM_ValueChanged(object sender, EventArgs e)
         {
             if (model != null)
+            {
                 model.n = (int)NumericUpDown_countM.Value;
+            }
         }
 
 
@@ -244,51 +285,57 @@ namespace TPR_Lab1
 
         DataGridView Copy(DataGridView source)
         {
-            DataGridView dgv = new DataGridView();
-            dgv.ColumnCount = source.ColumnCount;
-            dgv.RowCount = source.RowCount + 1;
+            DataGridView dgv = new DataGridView
+            {
+                ColumnCount = source.ColumnCount,
+                RowCount = source.RowCount + 1,
 
-            dgv.ColumnHeadersVisible = source.ColumnHeadersVisible;
-            dgv.RowHeadersVisible = source.RowHeadersVisible;
-            dgv.AllowUserToAddRows = source.AllowUserToAddRows;
-            dgv.Top = source.Top;
-            dgv.Left = source.Left;
-            dgv.AllowUserToResizeColumns = source.AllowUserToResizeColumns;
-            dgv.AllowUserToResizeRows = source.AllowUserToResizeRows;
-            dgv.Name = source.Name + panels.Count;
+                ColumnHeadersVisible = source.ColumnHeadersVisible,
+                RowHeadersVisible = source.RowHeadersVisible,
+                AllowUserToAddRows = source.AllowUserToAddRows,
+                Top = source.Top,
+                Left = source.Left,
+                AllowUserToResizeColumns = source.AllowUserToResizeColumns,
+                AllowUserToResizeRows = source.AllowUserToResizeRows,
+                Name = source.Name + panels.Count,
 
-            dgv.BorderStyle = source.BorderStyle;
+                BorderStyle = source.BorderStyle
+            };
 
             return dgv;
         }
 
         TextBox Copy(TextBox src)
         {
-            TextBox tb = new TextBox();
-            tb.Left = src.Left;
-            tb.Top = src.Top;
+            TextBox tb = new TextBox
+            {
+                Left = src.Left,
+                Top = src.Top,
 
-            tb.Width = src.Width;
-            tb.Height = src.Height;
-            tb.Name = src.Name + panels.Count;
+                Width = src.Width,
+                Height = src.Height,
+                Name = src.Name + panels.Count,
 
-            tb.BorderStyle = BorderStyle.FixedSingle;
+                BorderStyle = BorderStyle.FixedSingle
+            };
 
             return tb;
         }
         Label Copy(Label src)
         {
-            Label lbl = new Label();
-            lbl.Left = src.Left;
-            lbl.Top = src.Top;
+            Label lbl = new Label
+            {
+                Left = src.Left,
+                Top = src.Top,
 
-            lbl.Width = src.Width;
-            lbl.Height = src.Height;
+                Width = src.Width,
+                Height = src.Height,
 
-            lbl.Text = src.Text;
-            lbl.Name = src.Name + panels.Count;
+                Text = src.Text,
+                Name = src.Name + panels.Count,
 
-            lbl.BorderStyle = BorderStyle.FixedSingle;
+                BorderStyle = BorderStyle.FixedSingle
+            };
 
             return lbl;
         }
@@ -337,6 +384,7 @@ namespace TPR_Lab1
         private void NumericUpDown_countState_ValueChanged(object sender, EventArgs e)
         {
             foreach (Panel pan in panels)
+            {
                 foreach (Control dgv in pan.Controls)
                 {
                     if (dgv is DataGridView)
@@ -346,6 +394,10 @@ namespace TPR_Lab1
                     }
 
                 }
+            }
+
+            numericUpDown_startState.Value = Math.Min(numericUpDown_startState.Value, NumericUpDown_countState.Value);
+            numericUpDown_startState.Maximum = NumericUpDown_countState.Value;
         }
     }
 

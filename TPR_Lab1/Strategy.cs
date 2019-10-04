@@ -45,7 +45,10 @@ namespace TPR_Lab1
         {
             double sum = 0;
             for (int i = 0; i < N; i++)
+            {
                 sum += p[situation, i] * r[situation, i];
+            }
+
             return sum;
         }
 
